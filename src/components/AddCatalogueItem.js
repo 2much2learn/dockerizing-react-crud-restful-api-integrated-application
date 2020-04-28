@@ -2,8 +2,11 @@ import React, { Fragment, useState, useContext } from 'react';
 import { GlobalContext } from '../context/GlobalState';
 import { useHistory } from "react-router-dom";
 import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 
 export const AddCatalogueItem = () => {
+    const { t } = useTranslation();
+
     const [form, setState] = useState({
         sku: '',
         name: '',
@@ -50,7 +53,7 @@ export const AddCatalogueItem = () => {
                         <label 
                             className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" 
                             htmlFor="sku">
-                            SKU
+                            {t('form.sku')}
                         </label>
                         <input 
                             name="sku"
@@ -58,13 +61,13 @@ export const AddCatalogueItem = () => {
                             value={form.sku} 
                             onChange={updateField} 
                             type="text"
-                            placeholder="Enter name" />
+                            placeholder={t('form_placeholders.sku_placeholder')}/>
                     </div>
                     <div className="w-full mb-5">
                         <label 
                             className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" 
                             htmlFor="name">
-                            Name
+                            {t('form.name')}
                         </label>
                         <input 
                             name="name"
@@ -72,13 +75,13 @@ export const AddCatalogueItem = () => {
                             value={form.name} 
                             onChange={updateField} 
                             type="text" 
-                            placeholder="Enter name" />
+                            placeholder={t('form_placeholders.name_placeholder')} />
                     </div>
                     <div className="w-full  mb-5">
                         <label 
                             className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" 
                             htmlFor="description">
-                            Description
+                            {t('form.description')}
                         </label>
                         <input 
                             name="description"
@@ -86,13 +89,13 @@ export const AddCatalogueItem = () => {
                             value={form.description} 
                             onChange={updateField} 
                             type="text" 
-                            placeholder="Enter description" />
+                            placeholder={t('form_placeholders.description_placeholder')} />
                     </div>
                     <div className="w-full  mb-5">
                         <label 
                             className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" 
                             htmlFor="category">
-                            Category
+                            {t('form.category')}
                         </label>
                         <input 
                             name="category"
@@ -100,13 +103,13 @@ export const AddCatalogueItem = () => {
                             value={form.category} 
                             onChange={updateField} 
                             type="text" 
-                            placeholder="Enter category" />
+                            placeholder={t('form_placeholders.category_placeholder')} />
                     </div>
                     <div className="w-full  mb-5">
                         <label 
                             className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" 
                             htmlFor="price">
-                            Price
+                            {t('form.price')}
                         </label>
                         <input 
                             name="price"
@@ -114,13 +117,13 @@ export const AddCatalogueItem = () => {
                             value={form.price} 
                             onChange={updateField}
                             type="number" 
-                            placeholder="Enter price" />
+                            placeholder={t('form_placeholders.price_placeholder')} />
                     </div>
                     <div className="w-full  mb-5">
                         <label 
                             className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" 
                             htmlFor="inventory">
-                            Inventory
+                            {t('form.inventory')}
                         </label>
                         <input 
                             name="inventory"
@@ -128,15 +131,15 @@ export const AddCatalogueItem = () => {
                             value={form.inventory} 
                             onChange={updateField} 
                             type="number" 
-                            placeholder="Enter inventory" />
+                            placeholder={t('form_placeholders.inventory_placeholder')} />
                     </div>
                     <div className="flex items-center justify-between">
                         <button 
                             className="mt-5 bg-green-400 w-full hover:bg-green-500 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
-                            Add Item
+                            {t('controls.addItem')}
                         </button>
                     </div>
-                    <div className="text-center mt-4 text-gray-500"><Link to='/'>Cancel</Link></div>
+                    <div className="text-center mt-4 text-gray-500"><Link to='/'>{t('controls.cancel')}</Link></div>
                 </form>
             </div>
         </Fragment>

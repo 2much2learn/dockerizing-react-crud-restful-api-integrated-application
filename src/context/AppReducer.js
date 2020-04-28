@@ -40,7 +40,7 @@ export default (state, action) => {
         return {
             ...state,
             catalogueItems: updatedcatalogueItems,
-            notification: prepareNotificationToDisplay("success", "Item removed successfully !!")
+            notification: prepareNotificationToDisplay("success", 'notifications.success.itemRemoved')
         };
     }
     else if(action.type === 'ADD_catalogueItem') {
@@ -48,7 +48,7 @@ export default (state, action) => {
         return {
             ...state,
             catalogueItems: [...state.catalogueItems, action.payload],
-            notification: prepareNotificationToDisplay("success", "Item added successfully !!")
+            notification: prepareNotificationToDisplay("success", 'notifications.success.itemAdded')
         };
     }
     else if(action.type === 'EDIT_catalogueItem') {
@@ -64,7 +64,7 @@ export default (state, action) => {
         return {
             ...state,
             catalogueItems: updatedcatalogueItems,
-            notification: prepareNotificationToDisplay("success", "Item updated successfully !!")
+            notification: prepareNotificationToDisplay("success", 'notifications.success.itemUpdated')
         };
     }
     else {

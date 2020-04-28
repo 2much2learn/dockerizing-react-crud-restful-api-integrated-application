@@ -1,6 +1,6 @@
 import React, { createContext, useReducer } from 'react';
-import AppReducer from './AppReducer'
 
+import AppReducer from './AppReducer'
 import catalogueService from '../services/CatalogueService'
 
 export const GlobalContext = createContext();
@@ -36,7 +36,7 @@ export const GlobalProvider = ({ children }) => {
             });            
         })
         .catch(e => {            
-            dispatchAPICallFailure("Error occurred while getting catalogue items", e);
+            dispatchAPICallFailure('notifications.failure.itemGetAll', e);
         });
     };
 
@@ -53,7 +53,7 @@ export const GlobalProvider = ({ children }) => {
             });
         })
         .catch(e => {
-            dispatchAPICallFailure("Error occurred while getting catalogue item", e);
+            dispatchAPICallFailure('notifications.failure.itemGet', e);
         });
     };
 
@@ -70,7 +70,7 @@ export const GlobalProvider = ({ children }) => {
             });
         })
         .catch(e => {
-            dispatchAPICallFailure("Error occurred while removing catalogue item", e);
+            dispatchAPICallFailure('notifications.failure.itemRemoved', e);
         });
     };
 
@@ -87,7 +87,7 @@ export const GlobalProvider = ({ children }) => {
             });            
         })
         .catch(e => {
-            dispatchAPICallFailure("Error occurred while adding catalogue item", e);
+            dispatchAPICallFailure('notifications.failure.itemAdded', e);
         });
     };
 
@@ -104,7 +104,7 @@ export const GlobalProvider = ({ children }) => {
             });
         })
         .catch(e => {
-            dispatchAPICallFailure("Error occurred while updating catalogue item", e);
+            dispatchAPICallFailure('notifications.failure.itemUpdated', e);
         });
     };
 

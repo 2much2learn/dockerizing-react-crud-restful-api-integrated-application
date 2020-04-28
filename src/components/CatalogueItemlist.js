@@ -1,9 +1,11 @@
 import React, { Fragment, useContext, useEffect } from 'react';
 import { GlobalContext } from '../context/GlobalState';
 import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 
 export const CatalogueItemlist = () => {
     const { catalogueItems, removecatalogueItem, getCatalogueItems } = useContext(GlobalContext);
+    const { t } = useTranslation();
 
     useEffect(() => {
         getCatalogueItems();
@@ -14,13 +16,13 @@ export const CatalogueItemlist = () => {
             <div className="flex items-center bg-gray-200 mb-10 shadow" >
                 <div className="flex-auto text-left">
                     <div class="grid grid-cols-6 divide-x divide-gray-400 mr-3 py-2 px-4">
-                        <div class="col-span-1 text-gray-600">SKU</div>
-                        <div class="col-span-1 ">Category</div>
+                        <div class="col-span-1 text-gray-600">{t('form.sku')}</div>
+                        <div class="col-span-1 ">{t('form.category')}</div>
                         <div class="col-span-2 text-left">
-                            <div class="">Name</div>
+                            <div class="">{t('form.name')}</div>
                         </div>                                    
-                        <div class="col-span-1 text-center">Price</div>
-                        <div class="col-span-1 text-center">Inventory</div>
+                        <div class="col-span-1 text-center">{t('form.price')}</div>
+                        <div class="col-span-1 text-center">{t('form.inventory')}</div>
                     </div>
                 </div>
                 <div className="flex text-right px-4 py-2 m-2">
@@ -66,7 +68,7 @@ export const CatalogueItemlist = () => {
                         </div>
                     </div>
                 ))}
-            </Fragment> : <p className="text-center bg-gray-100 text-gray-500 py-5">No data</p>}
+            </Fragment> : <p className="text-center bg-gray-100 text-gray-500 py-5">{t('nodata')}</p>}
         </Fragment>
     )
 }

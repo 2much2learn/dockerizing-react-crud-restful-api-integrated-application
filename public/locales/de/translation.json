@@ -1,0 +1,41 @@
+{
+    "title": "Catalogusitems",
+    "controls": {
+        "add": "Catalogusitem toevoegen",
+        "addItem": "Voeg item toe",
+        "editItem": "Item bewerken",
+
+        "cancel": "annuleren"
+    },
+    "nodata": "Geen informatie",
+    "form": {
+        "sku": "SKU",
+        "name": "Naam",
+        "description": "Omschrijving",
+        "category": "Categorie",
+        "price": "Prijs",
+        "inventory": "Voorraad"
+    },
+    "form_placeholders": {
+        "sku_placeholder": "Voer sku in",
+        "name_placeholder": "Voer naam in",
+        "description_placeholder": "Voer een beschrijving in",
+        "category_placeholder": "Categorie invoeren",
+        "price_placeholder": "Prijs invoeren",
+        "inventory_placeholder": "Voer inventaris in"
+    },
+    "notifications": {
+        "success": {
+            "itemAdded": "Item succesvol toegevoegd !!",
+            "itemUpdated": "Item succesvol bijgewerkt !!",
+            "itemRemoved": "Item succesvol verwijderd !!"
+        },
+        "failure": {
+            "itemAdded": "Er is een fout opgetreden bij het toevoegen van een catalogusitem",
+            "itemUpdated": "Er is een fout opgetreden bij het bijwerken van het catalogusitem",
+            "itemRemoved": "Er is een fout opgetreden bij het verwijderen van het catalogusitem",
+            "itemGetAll": "Er is een fout opgetreden bij het ophalen van catalogusitems",
+            "itemGet": "Er is een fout opgetreden bij het ophalen van het catalogusitem"
+        }
+    }
+  }
