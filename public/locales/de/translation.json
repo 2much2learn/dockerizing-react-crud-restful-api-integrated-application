@@ -16,13 +16,22 @@
         "price": "Prijs",
         "inventory": "Voorraad"
     },
-    "form_placeholders": {
-        "sku_placeholder": "Voer sku in",
-        "name_placeholder": "Voer naam in",
-        "description_placeholder": "Voer een beschrijving in",
-        "category_placeholder": "Categorie invoeren",
-        "price_placeholder": "Prijs invoeren",
-        "inventory_placeholder": "Voer inventaris in"
+    "forms_placeholder": {
+        "sku": "Voer sku in",
+        "name": "Voer naam in",
+        "description": "Voer een beschrijving in",
+        "category": "Selecteer categorie",
+        "price": "Prijs invoeren",
+        "inventory": "Voer inventaris in"
+    },
+    "categories": {
+        "Books": "Boeken",
+        "Music": "Muziek",
+        "Movies": "Films",
+        "Games": "Spellen",
+        "Electronics": "Elektronica",
+        "Computers": "Computers",
+        "Office": "Kantoor"
     },
     "notifications": {
         "success": {

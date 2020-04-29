@@ -2,6 +2,8 @@ import React, { Fragment, useState, useContext, useEffect } from 'react';
 import { GlobalContext } from '../context/GlobalState';
 import { useHistory, Link } from "react-router-dom";
 import { useTranslation } from 'react-i18next';
+import Select from 'react-select'
+import { categoryOptions } from '../constants'
 
 export const EditCatalogueItem = (route) => {
     const { t } = useTranslation();
@@ -36,6 +38,13 @@ export const EditCatalogueItem = (route) => {
         history.push('/');
     }
 
+    const updateCategoryChange = selectedOption => {
+        setSeletedCatalogueItem({ 
+            ...selectedCatalogueItem,
+            category: selectedOption.value
+        });
+    };
+
     const updateField = e => {
         setSeletedCatalogueItem({
             ...selectedCatalogueItem,
@@ -59,7 +68,7 @@ export const EditCatalogueItem = (route) => {
                             value={selectedCatalogueItem.sku} 
                             onChange={updateField} 
                             type="text" 
-                            placeholder={t('form_placeholders.sku')} />
+                            placeholder={t('forms_placeholder.sku')} />
                     </div>
                     <div className="w-full mb-5">
                         <label 
@@ -73,7 +82,7 @@ export const EditCatalogueItem = (route) => {
                             value={selectedCatalogueItem.name} 
                             onChange={updateField} 
                             type="text" 
-                            placeholder={t('form_placeholders.name')} />
+                            placeholder={t('forms_placeholder.name')} />
                     </div>
                     <div className="w-full  mb-5">
                         <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" htmlFor="description">
@@ -85,19 +94,26 @@ export const EditCatalogueItem = (route) => {
                             value={selectedCatalogueItem.description} 
                             onChange={updateField} 
                             type="text" 
-                            placeholder={t('form_placeholders.description')} />
+                            placeholder={t('forms_placeholder.description')} />
                     </div>
-                    <div className="w-full  mb-5">
+                    <div className="w-full mb-5">
                         <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" htmlFor="category">
-                        {t('form.category')}
+                            {t('form.category')}
                         </label>
-                        <input 
-                            name="category"
-                            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:text-gray-600 focus:shadow-outline" 
-                            value={selectedCatalogueItem.category}
-                            onChange={updateField}
-                            type="text" 
-                            placeholder={t('form_placeholders.category')} />
+                        <div className="relative">
+                            <Select 
+                                name="category"
+                                className="block appearance-none w-full rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+                                value={categoryOptions.filter(option => option.value === selectedCatalogueItem.category)}
+                                onChange={updateCategoryChange}
+                                placeholder={t('forms_placeholder.category')}
+                                options={categoryOptions}
+                                getOptionLabel={option =>
+                                    t(`${option.label}`)
+                                }>
+                            >
+                            </Select>                            
+                        </div>
                     </div>
                     <div className="w-full  mb-5">
                         <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" htmlFor="price">
@@ -109,7 +125,7 @@ export const EditCatalogueItem = (route) => {
                             value={selectedCatalogueItem.price}
                             onChange={updateField}
                             type="number" 
-                            placeholder={t('form_placeholders.price')} />
+                            placeholder={t('forms_placeholder.price')} />
                     </div>
                     <div className="w-full  mb-5">
                         <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" htmlFor="inventory">
@@ -121,7 +137,7 @@ export const EditCatalogueItem = (route) => {
                             value={selectedCatalogueItem.inventory}
                             onChange={updateField}
                             type="text" 
-                            placeholder={t('form_placeholders.inventory')} />
+                            placeholder={t('forms_placeholder.inventory')} />
                     </div>
                     <div className="flex items-center justify-between">
                         <button 

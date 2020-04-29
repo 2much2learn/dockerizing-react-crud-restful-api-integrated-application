@@ -2,7 +2,9 @@ import React, { Fragment, useState, useContext } from 'react';
 import { GlobalContext } from '../context/GlobalState';
 import { useHistory } from "react-router-dom";
 import { Link } from 'react-router-dom';
+import Select from 'react-select'
 import { useTranslation } from 'react-i18next';
+import { categoryOptions } from '../constants'
 
 export const AddCatalogueItem = () => {
     const { t } = useTranslation();
@@ -27,6 +29,13 @@ export const AddCatalogueItem = () => {
         });
     };
 
+    const updateCategoryChange = selectedOption => {
+        setState({ 
+            ...form,
+            category: selectedOption
+        });
+    };
+
     const onSubmit = e => {
         e.preventDefault();
 
@@ -34,12 +43,12 @@ export const AddCatalogueItem = () => {
             sku: form.sku,
             name: form.name,
             description: form.description,
-            category: form.category,
+            category: form.category.value,
             price: form.price,
             inventory: form.inventory
         }
 
-        //console.log("==> Catalogue item being submitted :: ", newcatalogueItem);
+        console.log("==> Catalogue item being submitted :: ", newcatalogueItem);
 
         addcatalogueItem(newcatalogueItem);
         history.push("/");
@@ -61,7 +70,7 @@ export const AddCatalogueItem = () => {
                             value={form.sku} 
                             onChange={updateField} 
                             type="text"
-                            placeholder={t('form_placeholders.sku_placeholder')}/>
+                            placeholder={t('forms_placeholder.sku')}/>
                     </div>
                     <div className="w-full mb-5">
                         <label 
@@ -75,7 +84,7 @@ export const AddCatalogueItem = () => {
                             value={form.name} 
                             onChange={updateField} 
                             type="text" 
-                            placeholder={t('form_placeholders.name_placeholder')} />
+                            placeholder={t('forms_placeholder.name')} />
                     </div>
                     <div className="w-full  mb-5">
                         <label 
@@ -89,21 +98,24 @@ export const AddCatalogueItem = () => {
                             value={form.description} 
                             onChange={updateField} 
                             type="text" 
-                            placeholder={t('form_placeholders.description_placeholder')} />
+                            placeholder={t('forms_placeholder.description')} />
                     </div>
-                    <div className="w-full  mb-5">
-                        <label 
-                            className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" 
-                            htmlFor="category">
+                    <div className="w-full mb-5">
+                        <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" htmlFor="category">
                             {t('form.category')}
                         </label>
-                        <input 
+                        <Select 
                             name="category"
-                            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:text-gray-600" 
+                            className="block appearance-none w-full rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
                             value={form.category} 
-                            onChange={updateField} 
-                            type="text" 
-                            placeholder={t('form_placeholders.category_placeholder')} />
+                            onChange={updateCategoryChange}
+                            placeholder={t('forms_placeholder.category')}
+                            options={categoryOptions}
+                            getOptionLabel={option =>
+                                t(`${option.label}`)
+                            }>
+                        >
+                        </Select>
                     </div>
                     <div className="w-full  mb-5">
                         <label 
@@ -117,7 +129,7 @@ export const AddCatalogueItem = () => {
                             value={form.price} 
                             onChange={updateField}
                             type="number" 
-                            placeholder={t('form_placeholders.price_placeholder')} />
+                            placeholder={t('forms_placeholder.price')} />
                     </div>
                     <div className="w-full  mb-5">
                         <label 
@@ -131,7 +143,7 @@ export const AddCatalogueItem = () => {
                             value={form.inventory} 
                             onChange={updateField} 
                             type="number" 
-                            placeholder={t('form_placeholders.inventory_placeholder')} />
+                            placeholder={t('forms_placeholder.inventory')} />
                     </div>
                     <div className="flex items-center justify-between">
                         <button 

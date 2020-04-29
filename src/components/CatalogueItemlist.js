@@ -15,18 +15,18 @@ export const CatalogueItemlist = () => {
         <Fragment>
             <div className="flex items-center bg-gray-200 mb-10 shadow" >
                 <div className="flex-auto text-left">
-                    <div class="grid grid-cols-6 divide-x divide-gray-400 mr-3 py-2 px-4">
-                        <div class="col-span-1 text-gray-600">{t('form.sku')}</div>
-                        <div class="col-span-1 ">{t('form.category')}</div>
-                        <div class="col-span-2 text-left">
-                            <div class="">{t('form.name')}</div>
+                    <div className="grid grid-cols-6 divide-x divide-gray-400 mr-3 py-2 px-4">
+                        <div className="col-span-1 text-gray-600">{t('form.sku')}</div>
+                        <div className="col-span-1 ">{t('form.category')}</div>
+                        <div className="col-span-2 text-left">
+                            <div className="">{t('form.name')}</div>
                         </div>                                    
-                        <div class="col-span-1 text-center">{t('form.price')}</div>
-                        <div class="col-span-1 text-center">{t('form.inventory')}</div>
+                        <div className="col-span-1 text-center">{t('form.price')}</div>
+                        <div className="col-span-1 text-center">{t('form.inventory')}</div>
                     </div>
                 </div>
                 <div className="flex text-right px-4 py-2 m-2">
-                <Link>
+                <Link to='/'>
                     <button
                         className="cursor-not-allowed bg-gray-100 text-gray-400 font-semibold mr-3 py-2 px-4 rounded-full inline-flex items-center">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="feather feather-edit"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path></svg>
@@ -42,15 +42,15 @@ export const CatalogueItemlist = () => {
                 {catalogueItems.map(catalogueItem => (
                     <div className="flex items-center bg-gray-100 mb-4 shadow" key={catalogueItem.sku}>
                         <div className="flex-auto text-left">
-                            <div class="grid grid-cols-6 divide-x divide-gray-400 mr-3 py-2 px-4">
-                                <div class="col-span-1 text-gray-600">{catalogueItem.sku}</div>
-                                <div class="col-span-1 ">{catalogueItem.category}</div>
-                                <div class="col-span-2 text-left">
-                                    <div class="">{catalogueItem.name}</div>
-                                    <div class="text-sm font-semibold mt-1">{catalogueItem.description}</div>
+                            <div className="grid grid-cols-6 divide-x divide-gray-400 mr-3 py-2 px-4">
+                                <div className="col-span-1 text-gray-600">{catalogueItem.sku}</div>
+                                <div className="col-span-1 ">{t(`categories.`+catalogueItem.category)}</div>
+                                <div className="col-span-2 text-left">
+                                    <div className="">{catalogueItem.name}</div>
+                                    <div className="text-sm font-semibold mt-1">{catalogueItem.description}</div>
                                 </div>                                    
-                                <div class="col-span-1 text-center">$ {catalogueItem.price}</div>
-                                <div class="col-span-1 text-center">{catalogueItem.inventory}</div>
+                                <div className="col-span-1 text-center">$ {catalogueItem.price}</div>
+                                <div className="col-span-1 text-center">{catalogueItem.inventory}</div>
                             </div>
                         </div>
                         <div className="flex text-right px-4 py-2 m-2">

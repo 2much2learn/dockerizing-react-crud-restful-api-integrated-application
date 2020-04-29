@@ -16,13 +16,22 @@
         "price": "Price",
         "inventory": "Inventory"
     },
-    "form_placeholders": {
-        "sku_placeholder": "Enter sku",
-        "name_placeholder": "Enter name",
-        "description_placeholder": "Enter description",
-        "category_placeholder": "Enter category",
-        "price_placeholder": "Enter price",
-        "inventory_placeholder": "Enter inventory"
+    "forms_placeholder": {
+        "sku": "Enter sku",
+        "name": "Enter name",
+        "description": "Enter description",
+        "category": "Select category",
+        "price": "Enter price",
+        "inventory": "Enter inventory"
+    },
+    "categories": {
+        "Books": "Books",
+        "Music": "Music",
+        "Movies": "Movies",
+        "Games": "Games",
+        "Electronics": "Electronics",
+        "Computers": "Computers",
+        "Office": "Office"
     },
     "notifications": {
         "success": {
