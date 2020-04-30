@@ -1,0 +1,50 @@
+{
+    "title": "Catalogue Items Listing",
+    "controls": {
+        "add": "Add Catalogue Item",
+        "addItem": "Add Item",
+        "editItem": "Edit Item",
+
+        "cancel": "Cancel"
+    },
+    "nodata": "No Data",
+    "form": {
+        "sku": "SKU",
+        "name": "Name",
+        "description": "Description",
+        "category": "Category",
+        "price": "Price",
+        "inventory": "Inventory"
+    },
+    "forms_placeholder": {
+        "sku": "Enter sku",
+        "name": "Enter name",
+        "description": "Enter description",
+        "category": "Select category",
+        "price": "Enter price",
+        "inventory": "Enter inventory"
+    },
+    "categories": {
+        "Books": "Books",
+        "Music": "Music",
+        "Movies": "Movies",
+        "Games": "Games",
+        "Electronics": "Electronics",
+        "Computers": "Computers",
+        "Office": "Office"
+    },
+    "notifications": {
+        "success": {
+            "itemAdded": "Item added successfully !!",
+            "itemUpdated": "Item updated successfully !!",
+            "itemRemoved": "Item removed successfully !!"
+        },
+        "failure": {
+            "itemAdded": "Error occurred while adding catalogue item",
+            "itemUpdated": "Error occurred while updating catalogue item",
+            "itemRemoved": "Error occurred while removing catalogue item",
+            "itemGetAll": "Error occurred while getting catalogue items",
+            "itemGet": "Error occurred while getting catalogue item"
+        }
+    }
+  }
