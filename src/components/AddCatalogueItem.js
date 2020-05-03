@@ -48,7 +48,7 @@ export const AddCatalogueItem = () => {
             inventory: form.inventory
         }
 
-        console.log("==> Catalogue item being submitted :: ", newcatalogueItem);
+        //console.log("==> Catalogue item being submitted :: ", newcatalogueItem);
 
         addcatalogueItem(newcatalogueItem);
         history.push("/");

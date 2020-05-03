@@ -22,8 +22,10 @@ export const Heading = () => {
     };
 
     useEffect(() => {
+        setLanguage(i18n.language);
+
         setNotificationToDisplay(notification);
-    }, [notification]);
+    }, [notification, i18n.language]);
 
     return (
         <Fragment>
